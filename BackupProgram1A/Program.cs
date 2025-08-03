@@ -27,7 +27,7 @@ namespace SimpleBackup
         private readonly TextBox txtDest = new() { Width = 310 };
         private readonly Button btnBrowseDest = new() { Text = "Browse…" };
         private readonly NumericUpDown numInterval = new() { Minimum = 1, Maximum = 1440, Value = 5 };
-        private readonly CheckBox chkRotate = new() { Text = "Max backups", Checked = true };
+        private readonly CheckBox chkRotate = new() { Text = "Max backups:", Checked = true };
         private readonly NumericUpDown numMaxBackups = new() { Minimum = 1, Maximum = 1000, Value = 10 };
         private readonly ComboBox cboCompression = new() { DropDownStyle = ComboBoxStyle.DropDownList };
         private readonly Button btnStartStop = new() { Text = "Start" };
@@ -53,7 +53,7 @@ namespace SimpleBackup
 
         public BackupForm()
         {
-            Text = "Dungeons of Dredmor Save Manager";
+            Text = "Dungeons of Dredmor Save Manager v1.0.1";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -64,20 +64,20 @@ namespace SimpleBackup
 
             toolTip.AutoPopDelay = 25000;
 
-            /* layout (same as before) */
+            // Layout
             var table = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 3, RowCount = 8 };
             table.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
             table.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
 
             int r = 0;
-            table.Controls.Add(new Label { Text = "Source folder:" }, 0, 0);
+            table.Controls.Add(new Label { Text = "Source:" }, 0, 0);
             table.Controls.Add(txtSource, 1, r);
             table.Controls.Add(btnBrowseSource, 2, r++);
             toolTip.SetToolTip(this.btnBrowseSource, "This is the folder to make backups of. Your Dredmor saves should be in the Gaslamp Games folder within Documents. I personally find it easiest to select the entire Dungeons of Dredmor folder.");
             toolTip.SetToolTip(this.txtSource, @"“C:\Users\<YourUsername>\Documents\Gaslamp Games\Dungeons of Dredmor” is typically where you will find your saves, but this program can be used for other stuff too.");
 
-            table.Controls.Add(new Label { Text = "Destination folder:" }, 0, 1);
+            table.Controls.Add(new Label { Text = "Destination:" }, 0, 1);
             table.Controls.Add(txtDest, 1, r);
             table.Controls.Add(btnBrowseDest, 2, r++);
             toolTip.SetToolTip(this.txtDest, "I recommend you make a folder specifically for your backups. NEVER select a folder used for anything other than this program. If you do, the program will run badly and throw safeguard warnings at you, or at worst, delete something else in the folder.");
