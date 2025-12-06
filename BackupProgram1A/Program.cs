@@ -6,7 +6,7 @@ using System.Text.Json;
 //using System.Windows.Forms;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace SimpleBackup
+namespace DredManager
 {
     internal static class Program
     {
@@ -125,7 +125,7 @@ namespace SimpleBackup
                 backupTimer.Interval = (int)numInterval.Value * 60 * 1000; backupTimer.Start(); btnStartStop.Text = "Stop";
                 OpenLogWriter(); Log($"Backup timer started ({numInterval.Value} min)."); RunBackup();
             }
-            else { backupTimer.Stop(); btnStartStop.Text = "Start"; Log("Backup timer stopped."); logWriter?.Dispose(); }
+            else { backupTimer.Stop(); btnStartStop.Text = "Start"; Log("Backup timer stopped."); logWriter?.Dispose(); logWriter = null; }
             SaveConfig();
         }
         private void RunBackup()
