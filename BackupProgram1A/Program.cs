@@ -53,7 +53,7 @@ namespace DredManager
 
         public BackupForm()
         {
-            Text = "Dungeons of Dredmor Save Manager v1.0.1";
+            Text = "Dungeons of Dredmor Save Manager v1.0.2";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
